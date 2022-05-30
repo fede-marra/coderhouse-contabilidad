@@ -101,11 +101,19 @@ def busqueda(request):
             opcionAccion = form.cleaned_data["opcionAccion"]
             if opcionAccion == "buscar":
                 if opcion == "ingresos":
+                    suma = 0
+                    h = 0
+                    for h in ingresos.objects.all():
+                        suma = suma + h.monto
                     valor = ingresos.objects.all
-                    return render(request,'busqueda.html',{'form':form, "ingresos":valor, "tipo":opcion})
+                    return render(request,'busqueda.html',{'form':form, "ingresos":valor, "tipo":opcion, "suma":suma})
                 elif opcion == "egresos":
+                    suma = 0
+                    h = 0
+                    for h in egresos.objects.all():
+                        suma = suma + h.monto
                     valor = egresos.objects.all
-                    return render(request,'busqueda.html',{'form':form, "egresos":valor, "tipo":opcion})
+                    return render(request,'busqueda.html',{'form':form, "egresos":valor, "tipo":opcion, "suma":suma})
                 elif opcion == "tipo_egresos":
                     valor = tipo_egreso.objects.all
                     return render(request,'busqueda.html',{'form':form, "tipos":valor, "tipo":opcion})

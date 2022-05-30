@@ -20,6 +20,7 @@
             <li>Fecha: {{ n.fecha }}</li>
             <br>
         {% endfor %}
+    <h1>El ingreso total es {{suma}}</h1>
     {% else %}
         <p>No tiene registros cargados</p>  
     {% endif %}
@@ -35,6 +36,7 @@
             <li>Fecha: {{ n.fecha }}</li>
             <br>
         {% endfor %}
+    <h1>El egreso total es {{suma}}</h1>
     {% else %}
         <p>No tiene registros cargados</p>
     {% endif %}
@@ -55,10 +57,11 @@
 {% if tipo == "personas" %}
     {% if personas %}
         {% for n in personas %}
-            <li>ID: {{ n.id }} </li>
-            <li>{{n.nombres}}</li>
+            <li>ID: {{n.id}}</li>
+            <li>Nombre: {{n.nombres}}</li>       
             <br>
         {% endfor %}
+   
     {% else %}
         <p>No tiene registros cargados</p>
     {% endif %}
