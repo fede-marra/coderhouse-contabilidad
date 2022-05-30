@@ -1,0 +1,40 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Paginas de Ingresos</h1>
+    <form action="" method="post" align="center">
+        <h2>{{ mensaje }}</h2>
+        {% csrf_token %}
+        <h1 style="text-align: center;"><big>Ingrese el valor a resgistrar</big></h1>
+        <h2 style="text-align:center">{{ form }}</h2>
+        <input type="submit" value="Agregar">
+    </form>
+    <br>
+    <br>
+    {% if ingresos %}
+    {% for n in ingresos %}
+        <li>Nombre: {{ n.dequien }}</li>
+        <li>Descripcion: {{ n.descripcion }}</li>
+        <li>Monto: {{ n.monto }}</li>
+        <li>Fecha: {{ n.fecha }}</li>
+        <br>
+        <br>
+    {% endfor %}
+{% else %}
+    <p>No tienes ingresos registrados</p>
+{% endif %}
+</body>
+</html>
+
+
+{% endblock %}
