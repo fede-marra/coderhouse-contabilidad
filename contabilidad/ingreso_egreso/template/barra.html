@@ -1,7 +1,4 @@
-<html lang="en">
-<head>
-    
-</head>
+
 <style>
     #barra{
         margin: 0;
@@ -19,7 +16,7 @@
 </style>
 <body>
     <lu id="barra">
-       
+        <li><a href="{% url 'busqueda' %}">Busqueda</a></li>
         <li><a href="{% url 'ingreso' %}">Ingresos</a></li>
         <li><a href="{% url 'egreso' %}">Egresos</a></li>
         <li><a href="{% url 'tiposEgresos' %}">Tipos de Egresos</a></li>
@@ -28,5 +25,3 @@
 
 
     </lu>
-</body>
-</html>

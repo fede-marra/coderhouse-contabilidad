@@ -56,7 +56,7 @@ ROOT_URLCONF = 'contabilidad.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["/home/federico/python/EntregaIntermadia/contabilidad/ingreso_egreso/template"],
+        'DIRS': ["./ingreso_egreso/template"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

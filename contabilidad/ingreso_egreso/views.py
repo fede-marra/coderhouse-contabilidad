@@ -4,11 +4,6 @@ from ingreso_egreso.models import egresos, ingresos, tipo_egreso, personas
 from ingreso_egreso.forms import *
 from django.contrib import messages
 
-#def index(request):
-#    pass
-#    #diccionario = {"ingresos":ing}
-#    #return render(request,"mostrar.html",diccionario)
-
 def ingreso(request):
     
     ing = ingresos.objects.all
@@ -93,3 +88,58 @@ def mostrarTiposEgresos(request):
     egre = tipo_egreso.objects.all
     diccionario = {"tipos":egre}
     return render(request,"mostrarEgresos.html",diccionario)
+
+def busqueda(request):
+    if request.method == "POST":
+        form = busquedaForm(request.POST)
+        if form.is_valid():
+            nom = ''
+            campo = ''
+            opcion = form.cleaned_data["opcion"]
+            opcionAccion = form.cleaned_data["opcionAccion"]
+            if opcionAccion == "buscar":
+                if opcion == "ingresos":
+                    valor = ingresos.objects.all
+                    return render(request,'busqueda.html',{'form':form, "ingresos":valor, "tipo":opcion})
+                elif opcion == "egresos":
+                    valor = egresos.objects.all
+                    return render(request,'busqueda.html',{'form':form, "egresos":valor, "tipo":opcion})
+                elif opcion == "tipo_egresos":
+                    valor = tipo_egreso.objects.all
+                    return render(request,'busqueda.html',{'form':form, "tipos":valor, "tipo":opcion})
+                else:
+                    opcion = "personas"
+                    valor = personas.objects.all
+                    return render(request,'busqueda.html',{'form':form, "personas":valor, "tipo":opcion})
+            if opcionAccion == "eliminar":
+                if opcion == "ingresos":
+                    valor = ingresos.objects.all
+                    nom = form.cleaned_data["identificar"]
+                    valores = ingresos.objects.filter(dequien=nom)
+                    valores.delete()
+                if opcion == "egresos":
+                    valor = egresos.objects.all
+                    nom = form.cleaned_data["identificar"]
+                    valores = egresos.objects.filter(tipo=nom)
+                    valores.delete()
+                if opcion == "tipo_egresos":
+                    valor = tipo_egreso.objects.all
+                    nom = form.cleaned_data["identificar"]
+                    valores = tipo_egreso.objects.filter(tipos=nom)
+                    valores.delete()
+                if opcion == "personas":
+                    valor = personas.objects.all
+                    nom = form.cleaned_data["identificar"]
+                    valores = personas.objects.filter(nombres=nom)
+                    valores.delete()
+                
+               
+                
+                messages.success(request,"La persona se ha eliminado con exito")
+        return HttpResponseRedirect("/busqueda")
+    elif request.method == "GET":
+        form = busquedaForm()
+    else:
+        return HttpResponseBadRequest("Error no conozco ese metodo para esta request")
+
+    return render(request,'busqueda.html',{'form':form})
