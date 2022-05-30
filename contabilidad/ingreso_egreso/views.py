@@ -95,8 +95,6 @@ def busqueda(request):
     if request.method == "POST":
         form = busquedaForm(request.POST)
         if form.is_valid():
-            nom = ''
-           
             opcion = form.cleaned_data["opcion"]
             opcionAccion = form.cleaned_data["opcionAccion"]
             if opcionAccion == "buscar":
