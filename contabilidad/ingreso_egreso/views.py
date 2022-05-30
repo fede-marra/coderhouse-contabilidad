@@ -1,3 +1,4 @@
+
 from django.http import HttpResponseBadRequest, HttpResponseRedirect
 from django.shortcuts import render
 from ingreso_egreso.models import egresos, ingresos, tipo_egreso, personas
@@ -9,6 +10,7 @@ def ingreso(request):
     ing = ingresos.objects.all
     if request.method == "POST":
         form = ingresosForm(request.POST)
+        
         if form.is_valid():
             dequien = form.cleaned_data["dequien"]
             descripcion = form.cleaned_data["descripcion"]
@@ -38,7 +40,7 @@ def egreso(request):
             monto = form.cleaned_data["monto"]
             fecha = form.cleaned_data["fecha"]
             egresos.objects.create(tipo=tipo, descripcion=descripcion, monto=monto, fecha=fecha)
-            messages.success(request,"El ingreso se ha registrado con exito")
+            messages.success(request,"El egreso se ha registrado con exito")
         else:
             messages.error(request,form.errors.as_text())
         return HttpResponseRedirect("/egresos")
@@ -70,7 +72,7 @@ def persona(request):
         if form.is_valid():
             nombres = form.cleaned_data["nombres"]
             personas.objects.create(nombres=nombres)
-            messages.success(request,"La persona se ha registrado con exito")
+            messages.success(request,'La persona se ha registrado con exito')
         return HttpResponseRedirect("/personas")
     elif request.method == "GET":
         form = personasForm()
@@ -94,7 +96,7 @@ def busqueda(request):
         form = busquedaForm(request.POST)
         if form.is_valid():
             nom = ''
-            campo = ''
+           
             opcion = form.cleaned_data["opcion"]
             opcionAccion = form.cleaned_data["opcionAccion"]
             if opcionAccion == "buscar":
@@ -114,28 +116,28 @@ def busqueda(request):
             if opcionAccion == "eliminar":
                 if opcion == "ingresos":
                     valor = ingresos.objects.all
-                    nom = form.cleaned_data["identificar"]
-                    valores = ingresos.objects.filter(dequien=nom)
+                    id = form.cleaned_data["identificar"]
+                    valores = ingresos.objects.filter(id=id)
                     valores.delete()
+                    messages.success(request,"El ingreso se ha eliminado con exito")
                 if opcion == "egresos":
                     valor = egresos.objects.all
-                    nom = form.cleaned_data["identificar"]
-                    valores = egresos.objects.filter(tipo=nom)
+                    id = form.cleaned_data["identificar"]
+                    valores = egresos.objects.filter(id=id)
                     valores.delete()
+                    messages.success(request,"El egreso se ha eliminado con exito")
                 if opcion == "tipo_egresos":
                     valor = tipo_egreso.objects.all
-                    nom = form.cleaned_data["identificar"]
-                    valores = tipo_egreso.objects.filter(tipos=nom)
+                    id = form.cleaned_data["identificar"]
+                    valores = tipo_egreso.objects.filter(id=id)
                     valores.delete()
+                    messages.success(request,"El tipo de egreso se ha eliminado con exito")
                 if opcion == "personas":
                     valor = personas.objects.all
-                    nom = form.cleaned_data["identificar"]
-                    valores = personas.objects.filter(nombres=nom)
+                    id = form.cleaned_data["identificar"]
+                    valores = personas.objects.filter(id=id)
                     valores.delete()
-                
-               
-                
-                messages.success(request,"La persona se ha eliminado con exito")
+                    messages.success(request,"La persona se ha eliminado con exito")
         return HttpResponseRedirect("/busqueda")
     elif request.method == "GET":
         form = busquedaForm()

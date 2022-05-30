@@ -13,18 +13,7 @@
     </form>
     <br>
     <br>
-    {% if ingresos %}
-    {% for n in ingresos %}
-        <li>Nombre: {{ n.dequien }}</li>
-        <li>Descripcion: {{ n.descripcion }}</li>
-        <li>Monto: {{ n.monto }}</li>
-        <li>Fecha: {{ n.fecha }}</li>
-        <br>
-        <br>
-    {% endfor %}
-{% else %}
-    <p>No tienes ingresos registrados</p>
-{% endif %}
+    
 
 
 

@@ -11,50 +11,60 @@
 </form>
 {% if tipo == "ingresos" %}
     {% if ingresos %}
+       
         {% for n in ingresos %}
+            <li>ID: {{ n.id }} </li>
             <li>Nombre: {{ n.dequien }}</li>
             <li>Descripcion: {{ n.descripcion }}</li>
             <li>Monto: {{ n.monto }}</li>
             <li>Fecha: {{ n.fecha }}</li>
             <br>
-            <br>
         {% endfor %}
+    {% else %}
+        <p>No tiene registros cargados</p>  
     {% endif %}
 {% endif %}
 
 {% if tipo == "egresos" %}
-    {% if egresos %}
+    {% if egresos  %}
         {% for n in egresos %}
+            <li>ID: {{ n.id }} </li>
             <li>tipo: {{ n.tipo }}</li>
             <li>Descripcion: {{ n.descripcion }}</li>
             <li>Monto: {{ n.monto }}</li>
             <li>Fecha: {{ n.fecha }}</li>
             <br>
-            <br>
         {% endfor %}
+    {% else %}
+        <p>No tiene registros cargados</p>
     {% endif %}
 {% endif %}
 
 {% if tipo == "tipo_egresos" %}
     {% if tipos %}
         {% for n in tipos %}
+            <li> ID: {{ n.id }} </li>
             <li> {{n.tipos}}</li>
             <br>
-            <br>
         {% endfor %}
+    {% else %}
+        <p>No tiene registros cargados</p>
     {% endif %}
 {% endif %}
 
 {% if tipo == "personas" %}
     {% if personas %}
         {% for n in personas %}
+            <li>ID: {{ n.id }} </li>
             <li>{{n.nombres}}</li>
-            <br>
             <br>
         {% endfor %}
     {% else %}
-        <p>Realice una busqueda por favor</p>
+        <p>No tiene registros cargados</p>
     {% endif %}
+
+
+    
 {% endif %}
 
 {% endblock %}

@@ -2,7 +2,7 @@ from django.urls import path
 from ingreso_egreso import views
 
 urlpatterns = [
-    path('', views.ingreso, name="ingreso"),
+    path('', views.busqueda, name="busqueda"),
     path('ingresos/', views.ingreso, name="ingreso"),
     path('egresos/', views.egreso, name="egreso"),
     path('tiposEgresos/', views.tipoEgreso, name='tiposEgresos'),

@@ -16,18 +16,6 @@
     </form>
     <br>
     <br>
-    {% if egresos %}
-        {% for n in egresos %}
-            <li>tipo: {{ n.tipo }}</li>
-            <li>Descripcion: {{ n.descripcion }}</li>
-            <li>Monto: {{ n.monto }}</li>
-            <li>Fecha: {{ n.fecha }}</li>
-            <br>
-            <br>
-        {% endfor %}
-    {% else %}
-        <p>No tienes egresos registrados</p>
-    {% endif %}
 
 
 
