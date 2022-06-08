@@ -14,7 +14,7 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView, D
 
 class HomePageView(TemplateView):
     template_name = 'home.html'
-    
+
 # Personas
 
 
@@ -30,15 +30,15 @@ class PersonaDetail(DetailView):
 
 class PersonaCreate(CreateView):
     model = Persona
-    fields = ['nombre']
-    template_name = 'persona/form.html'
+    fields = ['nombre', 'apellido']
+    template_name = 'form.html'
     success_url = reverse_lazy('persona_list')
 
 
 class PersonaUpdate(UpdateView):
     model = Persona
-    fields = ['nombre']
-    template_name = 'persona/form.html'
+    fields = ['nombre', 'apellido']
+    template_name = 'form.html'
     success_url = reverse_lazy('persona_list')
 
 
