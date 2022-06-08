@@ -1,0 +1,16 @@
+
+{% block content %}
+    <p></p>
+    {% if object_list %}
+        {% for persona in object_list %}
+            <li>
+                <a href="{% url 'persona_detail' persona.id %}">{{ persona.name }}</a>
+                <a href="{% url 'persona_edit' persona.id %}">Actualizar</a>
+                <a href="{% url 'persona_delete' persona.id %}">Borrar</a>
+            </li>
+        {% endfor %}
+    {% else %}
+        <p>No hay personas</p>
+    {% endif %}
+    <p></p>
+{% endblock content %}
