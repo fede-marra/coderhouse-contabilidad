@@ -7,7 +7,6 @@ import datetime
 
 
 class Ingreso(models.Model):
-    tipo_ingreso = models.ForeignKey('Tipo_ingreso', on_delete=models.CASCADE)
     de_quien = models.CharField(max_length=30)
     nombre = models.CharField(max_length=30)
     descripcion = models.CharField(max_length=1000)
