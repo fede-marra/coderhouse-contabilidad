@@ -14,6 +14,9 @@ class Ingreso(models.Model):
     monto = models.IntegerField(default=0)
     fecha = models.DateField(default=datetime.date.today)
 
+    def __str__(self):
+        return self.nombre
+
 
 class Egreso(models.Model):
     tipo_egreso = models.ForeignKey('Tipo_egreso', on_delete=models.CASCADE)
@@ -22,9 +25,19 @@ class Egreso(models.Model):
     monto = models.IntegerField(default=0)
     fecha = models.DateField(default=datetime.date.today)
 
+    def __str__(self):
+        return self.nombre
+
 
 class Tipo_egreso(models.Model):
     nombre = models.CharField(max_length=30)
 
+    def __str__(self):
+        return self.nombre
+
+
 class Persona(models.Model):
     nombre = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.nombre
