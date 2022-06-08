@@ -7,8 +7,14 @@ from ingreso_egreso.models import Persona, Ingreso, Egreso, Tipo_egreso
 from django.contrib import messages
 
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView, TemplateView
 
+
+# Base
+
+class HomePageView(TemplateView):
+    template_name = 'home.html'
+    
 # Personas
 
 
@@ -25,14 +31,14 @@ class PersonaDetail(DetailView):
 class PersonaCreate(CreateView):
     model = Persona
     fields = ['nombre']
-    template_name = 'persona/persona_form.html'
+    template_name = 'persona/form.html'
     success_url = reverse_lazy('persona_list')
 
 
 class PersonaUpdate(UpdateView):
     model = Persona
     fields = ['nombre']
-    template_name = 'persona/persona_form.html'
+    template_name = 'persona/form.html'
     success_url = reverse_lazy('persona_list')
 
 
