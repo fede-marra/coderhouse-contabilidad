@@ -5,21 +5,26 @@ from multiprocessing.sharedctypes import Value
 from django.db import models
 import datetime
 
-class ingresos(models.Model):
-    
-    dequien = models.CharField(max_length=30)
+
+class Ingreso(models.Model):
+    tipo_ingreso = models.ForeignKey('Tipo_ingreso', on_delete=models.CASCADE)
+    de_quien = models.CharField(max_length=30)
+    nombre = models.CharField(max_length=30)
     descripcion = models.CharField(max_length=1000)
     monto = models.IntegerField(default=0)
     fecha = models.DateField(default=datetime.date.today)
 
-class egresos(models.Model):
-    tipo = models.CharField(max_length=20)
+
+class Egreso(models.Model):
+    tipo_egreso = models.ForeignKey('Tipo_egreso', on_delete=models.CASCADE)
+    nombre = models.CharField(max_length=30)
     descripcion = models.CharField(max_length=1000)
     monto = models.IntegerField(default=0)
     fecha = models.DateField(default=datetime.date.today)
 
-class tipo_egreso(models.Model):
-    tipos = models.CharField(max_length=30)
-   
-class personas(models.Model):
-    nombres = models.CharField(max_length=30)
+
+class Tipo_egreso(models.Model):
+    nombre = models.CharField(max_length=30)
+
+class Persona(models.Model):
+    nombre = models.CharField(max_length=30)
