@@ -56,12 +56,13 @@
 
 {% if tipo == "personas" %}
     {% if personas %}
+    
         {% for n in personas %}
             <li>ID: {{n.id}}</li>
             <li>Nombre: {{n.nombres}}</li>       
             <br>
         {% endfor %}
-   
+    
     {% else %}
         <p>No tiene registros cargados</p>
     {% endif %}
