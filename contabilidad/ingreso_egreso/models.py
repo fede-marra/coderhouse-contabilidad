@@ -7,7 +7,6 @@ import datetime
 
 
 class Ingreso(models.Model):
-    de_quien = models.CharField(max_length=30)
     nombre = models.CharField(max_length=30)
     descripcion = models.CharField(max_length=1000)
     monto = models.IntegerField(default=0)

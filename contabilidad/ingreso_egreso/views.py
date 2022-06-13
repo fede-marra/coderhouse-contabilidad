@@ -15,7 +15,7 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView, D
 class HomePageView(TemplateView):
     template_name = 'home.html'
 
-# Personas
+# -------------------------------------------Personas-------------------------------------------
 
 
 class PersonaList(ListView):
@@ -47,9 +47,95 @@ class PersonaDelete(DeleteView):
     template_name = 'persona/persona_delete.html'
     success_url = reverse_lazy('persona_list')
 
+# -------------------------------------------Tipo Egresos-------------------------------------------
 
-# Ingresos
-# Egresos
+class Tipo_egresoList(ListView):
+    model = Tipo_egreso
+    template_name = 'tipo_egresos/tipo-egreso_list.html'
+
+class Tipo_egresoDetail(DetailView):
+    model = Tipo_egreso
+    template_name = 'tipo_egresos/tipo-egreso_detail.html'
+
+class Tipo_egresoCreate(CreateView):
+    model = Tipo_egreso
+    fields = ['nombre']
+    template_name = 'form.html'
+    success_url = reverse_lazy('tipo-egreso_list')
+
+class Tipo_egresoUpdate(UpdateView):
+    model = Tipo_egreso
+    fields = ['nombre']
+    template_name = 'form.html'
+    success_url = reverse_lazy('tipo-egreso_list')
+
+
+class Tipo_egresoDelete(DeleteView):
+    model = Tipo_egreso
+    template_name = 'tipo_egresos/tipo-egreso_delete.html'
+    success_url = reverse_lazy('tipo-egreso_list')
+
+# -------------------------------------------Ingresos-------------------------------------------
+
+class IngresoList(ListView):
+    model = Ingreso
+    template_name = 'Ingreso/ingreso_list.html'
+
+
+class IngresoDetail(DetailView):
+    model = Ingreso
+    template_name = 'Ingreso/ingreso_detail.html'
+
+
+class IngresoCreate(CreateView):
+    model = Ingreso
+    fields = ['nombre','descripcion', 'monto','fecha']
+    template_name = 'form.html'
+    success_url = reverse_lazy('ingreso_list')
+
+
+class IngresoUpdate(UpdateView):
+    model = Ingreso
+    fields = ['nombre','descripcion', 'monto','fecha']
+    template_name = 'form.html'
+    success_url = reverse_lazy('ingreso_list')
+
+
+class IngresoDelete(DeleteView):
+    model = Ingreso
+    template_name = 'Ingreso/ingreso_delete.html'
+    success_url = reverse_lazy('ingreso_list')
+
+# -------------------------------------------Egresos-------------------------------------------
+
+class EgresoList(ListView):
+    model = Egreso
+    template_name = 'Egreso/egreso_list.html'
+
+
+class EgresoDetail(DetailView):
+    model = Egreso
+    template_name = 'Egreso/egreso_detail.html'
+
+
+class EgresoCreate(CreateView):
+    model = Egreso
+    fields = ['tipo_egreso','nombre','descripcion', 'monto','fecha']
+    template_name = 'form.html'
+    success_url = reverse_lazy('egreso_list')
+
+
+class EgresoUpdate(UpdateView):
+    model = Egreso
+    fields = ['tipo_egreso','nombre','descripcion', 'monto','fecha']
+    template_name = 'form.html'
+    success_url = reverse_lazy('egreso_list')
+
+
+class EgresoDelete(DeleteView):
+    model = Egreso
+    template_name = 'Egreso/egreso_delete.html'
+    success_url = reverse_lazy('egreso_list')
 
 # def ingreso(request):
 
