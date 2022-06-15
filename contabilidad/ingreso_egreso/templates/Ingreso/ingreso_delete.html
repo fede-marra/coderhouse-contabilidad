@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <p>¿Seguro desea eliminar el ingreso {{ object.id }} de {{ object.nombre }} de la Base de datos?</p>
+        <p>El cambio es permanente.</p>
+        <input type="submit" value="Borrar">
+    </form>
+{% endblock content %}
