@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Lista de personas</h2>
+    <div>
+        <a href="{% url 'persona_new' %}">Cargar</a>
+    </div>
+    <div>
+        <p></p>
+        {% if object_list %}
+            {% for persona in object_list %}
+                ID: {{ persona.id }}
+                <br>
+                Nombre: {{ persona.nombre }}
+                <br>
+                Apellido:{{ persona.apellido }}
+                <br>
+                <a href="{% url 'persona_detail' persona.id %}">Detalle</a>
+                <a href="{% url 'persona_edit' persona.id %}">Actualizar</a>
+                <a href="{% url 'persona_delete' persona.id %}">Borrar</a>
+                <p></p>
+            {% endfor %}
+        {% else %}
+            <p>No hay personas</p>
+        {% endif %}
+        <p></p>
+    </div>
+{% endblock content %}

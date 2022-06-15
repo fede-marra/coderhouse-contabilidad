@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SalesApp</title>
+    </head>
+    <body>
+        <div class="sidenav">
+            
+            {% comment %}
+                MODIFICAR LOS LINKS A LAS LISTAS!!!!!!!
+            {% endcomment %}
+                
+
+            <a href="{% url 'persona_list' %}">Personas</a>
+            <a href="{% url 'tipo-egreso_list' %}">Tipo Egreso</a>
+            <a href="{% url 'ingreso_list' %}">Ingresos</a> 
+            <a href="{% url 'egreso_list' %}">Egresos</a>
+        </div>
+        {% block content %}
+        {% endblock content %}
+        <p></p>
+        {% comment %} <input type="button" value="Atrás" onclick="history.back()"> {% endcomment %}
+        <a href="#" onclick="history.go(-1)">Atrás</a>
+        <a href="/">Inicio</a>
+    </body>
+</html>
