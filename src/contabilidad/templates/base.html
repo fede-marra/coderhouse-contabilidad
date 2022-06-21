@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ContabilidadApp</title>
+    </head>
+    <body>
+        {% if user.is_authenticated %}
+            <a href="{% url 'usuario_profile' user.id %}">Mi Perfil</a>
+            <a href="{% url 'logout' %}">Salir</a>
+            <p></p>
+            <a href="{% url 'ingreso_list' %}">Ingresos</a>
+            <a href="{% url 'egreso_list' %}">Egresos</a>
+            <p></p>
+        {% else %}
+            <a href="{% url 'login' %}">Entrar</a>
+            <a href="{% url 'usuario_signup' %}">Crear Cuenta</a>
+        {% endif %}
+        <div class="sidenav"></div>
+        {% block content %}
+        {% endblock content %}
+        <p></p>
+        {% comment %} <input type="button" value="Atrás" onclick="history.back()"> {% endcomment %}
+        <a href="/">Inicio</a>
+        <a href="#" onclick="history.go(-1)">Atrás</a>
+    </body>
+</html>

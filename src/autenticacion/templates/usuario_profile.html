@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    <ul>
+        <li>Nombre: {{ object.first_name }}</li>
+        <li>Apellido: {{ object.last_name }}</li>
+        <li>Correo electronico: {{ object.email }}</li>
+        <li>Nombre de Usuario: {{ object.username }}</li>
+    </ul>
+    <a href="{% url 'usuario_update' user.id %}">Editar</a>
+{% endblock content %}
+{% comment %} <img height="128" src="{{ object.avatar_set.first.image.url }}" /> {% endcomment %}
