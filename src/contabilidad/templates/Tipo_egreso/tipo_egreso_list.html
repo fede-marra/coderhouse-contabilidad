@@ -2,7 +2,7 @@
 {% block content %}
     <h2>Lista de tipos de egresos</h2>
     <div>
-        <a href="{% url 'tipo-egreso_new' %}">Cargar</a>
+        <a href="{% url 'tipo_egreso_new' %}">Cargar</a>
     </div>
     <div>
         <p></p>
@@ -12,10 +12,9 @@
                 <br>
                 Nombre: {{ tipo_egreso.nombre }}
                 <br>
-                
-                <a href="{% url 'tipo-egreso_detail' tipo_egreso.id %}">Detalle</a>
-                <a href="{% url 'tipo-egreso_edit' tipo_egreso.id %}">Actualizar</a>
-                <a href="{% url 'tipo-egreso_delete' tipo_egreso.id %}">Borrar</a>
+                <a href="{% url 'tipo_egreso_detail' tipo_egreso.id %}">Detalle</a>
+                <a href="{% url 'tipo_egreso_edit' tipo_egreso.id %}">Actualizar</a>
+                <a href="{% url 'tipo_egreso_delete' tipo_egreso.id %}">Borrar</a>
                 <p></p>
             {% endfor %}
         {% else %}

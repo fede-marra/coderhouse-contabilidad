@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+    <span>
+        <ul style="list-style-type: none; display: inline-block;">
+            <h2>Ingresos</h2>2 listViews in 1 template
+            
+            <a href="{% url 'ingreso_new' %}">Cargar</a>
+            {% if ingreso_list %}
+                {% for ingreso in ingreso_list %}
+                    <p></p>
+                    {{ ingreso.nombre }}
+                    <a href="{% url 'ingreso_detail' ingreso.id %}">Detalle</a>
+                    <a href="{% url 'ingreso_edit' ingreso.id %}">Actualizar</a>
+                    <a href="{% url 'ingreso_delete' ingreso.id %}">Borrar</a>
+                    <p></p>
+                {% endfor %}
+            {% else %}
+                <p>No hay ingresos registrados</p>
+            {% endif %}
+        </ul>
+        <ul style="list-style-type: none; display: inline-block;">
+            <h2>Egresos</h2>
+            <a href="{% url 'egreso_new' %}">Cargar</a>
+            {% if egreso_list %}
+                {% for egreso in egreso_list %}
+                    <p></p>
+                    {{ egreso.nombre }}
+                    <a href="{% url 'egreso_detail' egreso.id %}">Detalle</a>
+                    <a href="{% url 'egreso_edit' egreso.id %}">Actualizar</a>
+                    <a href="{% url 'egreso_delete' egreso.id %}">Borrar</a>
+                    <p></p>
+                {% endfor %}
+            {% else %}
+                <p>No hay egresos registrados</p>
+            {% endif %}
+        </ul>
+    </span>
+    <p></p>
+    <a href="{% url 'tipo_ingreso_new' %}">Cargar Tipos de Ingreso</a>
+    <p></p>
+    <a href="{% url 'tipo_egreso_new' %}">Cargar Tipos de Egreso</a>
+{% endblock content %}
