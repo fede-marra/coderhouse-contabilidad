@@ -2,13 +2,14 @@
 {% block content %}
     <span>
         <ul style="list-style-type: none; display: inline-block;">
-            <h2>Ingresos</h2>2 listViews in 1 template
-            
+            <h2>Ingresos</h2>
             <a href="{% url 'ingreso_new' %}">Cargar</a>
-            {% if ingreso_list %}
-                {% for ingreso in ingreso_list %}
+            {% if ingresos %}
+                {% for ingreso in ingresos %}
                     <p></p>
+                    {{ ingreso.fecha }}
                     {{ ingreso.nombre }}
+                    ${{ ingreso.monto }}
                     <a href="{% url 'ingreso_detail' ingreso.id %}">Detalle</a>
                     <a href="{% url 'ingreso_edit' ingreso.id %}">Actualizar</a>
                     <a href="{% url 'ingreso_delete' ingreso.id %}">Borrar</a>
@@ -21,10 +22,12 @@
         <ul style="list-style-type: none; display: inline-block;">
             <h2>Egresos</h2>
             <a href="{% url 'egreso_new' %}">Cargar</a>
-            {% if egreso_list %}
-                {% for egreso in egreso_list %}
+            {% if egresos %}
+                {% for egreso in egresos %}
                     <p></p>
+                    {{ egreso.fecha }}
                     {{ egreso.nombre }}
+                    ${{ egreso.monto }}
                     <a href="{% url 'egreso_detail' egreso.id %}">Detalle</a>
                     <a href="{% url 'egreso_edit' egreso.id %}">Actualizar</a>
                     <a href="{% url 'egreso_delete' egreso.id %}">Borrar</a>

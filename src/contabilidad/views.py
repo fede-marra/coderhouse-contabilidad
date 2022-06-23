@@ -131,7 +131,7 @@ class IngresoUpdate(UpdateView, LoginRequiredMixin):
     success_url = reverse_lazy('index')
 
 
-class IngresoDelete(UserPassesTestMixin, DeleteView, LoginRequiredMixin):
+class IngresoDelete(DeleteView, LoginRequiredMixin):
     model = Ingreso
     template_name = 'Ingreso/ingreso_delete.html'
     success_url = reverse_lazy('index')
@@ -167,7 +167,7 @@ class EgresoUpdate(UpdateView, LoginRequiredMixin):
     success_url = reverse_lazy('index')
 
 
-class EgresoDelete(UserPassesTestMixin, DeleteView, LoginRequiredMixin):
+class EgresoDelete(DeleteView, LoginRequiredMixin):
     model = Egreso
     template_name = 'Egreso/egreso_delete.html'
     success_url = reverse_lazy('index')
