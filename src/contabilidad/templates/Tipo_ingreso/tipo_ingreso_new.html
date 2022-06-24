@@ -1,20 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h2>Lista de tipos de egresos</h2>
+    <h2>Lista de tipos de Ingresos</h2>
     <div>
-        <a href="{% url 'tipo_egreso_new' %}">Cargar</a>
+        <a href="{% url 'tipo_ingreso_new' %}">Cargar</a>
     </div>
     <div>
         <p></p>
         {% if object_list %}
-            {% for tipo_egreso in object_list %}
-                ID: {{ tipo_egreso.id }}
+            {% for tipo_ingreso in object_list %}
+                ID: {{ tipo_ingreso.id }}
                 <br>
-                Nombre: {{ tipo_egreso.nombre }}
+                Nombre: {{ tipo_ingreso.nombre }}
                 <br>
-                <a href="{% url 'tipo_egreso_detail' tipo_egreso.id %}">Detalle</a>
-                <a href="{% url 'tipo_egreso_edit' tipo_egreso.id %}">Actualizar</a>
-                <a href="{% url 'tipo_egreso_delete' tipo_egreso.id %}">Borrar</a>
+                <a href="{% url 'tipo_ingreso_detail' tipo_ingreso.id %}">Detalle</a>
+                <a href="{% url 'tipo_ingreso_edit' tipo_egreso.id %}">Actualizar</a>
+                <a href="{% url 'tipo_ingreso_delete' tipo_egreso.id %}">Borrar</a>
                 <p></p>
             {% endfor %}
         {% else %}

@@ -3,43 +3,124 @@
     <span>
         <ul style="list-style-type: none; display: inline-block;">
             <h2>Ingresos</h2>
-            <a href="{% url 'ingreso_new' %}">Cargar</a>
+            <a class="btn btn-outline-success" href="{% url 'ingreso_new' %}">Cargar</a>
             {% if ingresos %}
-                {% for ingreso in ingresos %}
-                    <p></p>
-                    {{ ingreso.fecha }}
-                    {{ ingreso.nombre }}
-                    ${{ ingreso.monto }}
-                    <a href="{% url 'ingreso_detail' ingreso.id %}">Detalle</a>
-                    <a href="{% url 'ingreso_edit' ingreso.id %}">Actualizar</a>
-                    <a href="{% url 'ingreso_delete' ingreso.id %}">Borrar</a>
-                    <p></p>
-                {% endfor %}
+               
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                    <table class="table">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th scope="col">Fecha</th>
+                                                <th scope="col">Nombre</th>
+                                                <th scpoe="col">Monto</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for ingreso in ingresos %}
+                                            <tr>
+                                                <th> {{ ingreso.fecha }} </th>
+                                                <th> {{ ingreso.nombre }} </th>
+                                                <th> ${{ ingreso.monto }} </th>   
+                                            <tr>
+                                                <th scope="col">
+                                                    <a class="btn btn-primary" href="{% url 'ingreso_detail' ingreso.id %}">Detalle</a>
+                                                </th>
+                                                <th>                                                    
+                                                    <a class="btn btn-primary" href="{% url 'ingreso_edit' ingreso.id %}">Actualizar</a>
+                                                </th>
+                                                <th>
+                                                    <a class="btn btn-primary" href="{% url 'ingreso_delete' ingreso.id %}">Borrar</a>
+                                                </th>
+                                            </tr>
+                                            {% endfor %}
+                                            
+                                        </tbody>
+                                    </table>
+                                
+                            </div>
+                        </div>
+                    </div>
             {% else %}
                 <p>No hay ingresos registrados</p>
             {% endif %}
         </ul>
         <ul style="list-style-type: none; display: inline-block;">
             <h2>Egresos</h2>
-            <a href="{% url 'egreso_new' %}">Cargar</a>
+            <a class="btn btn-outline-success" href="{% url 'egreso_new' %}">Cargar</a>
+            
             {% if egresos %}
-                {% for egreso in egresos %}
-                    <p></p>
-                    {{ egreso.fecha }}
-                    {{ egreso.nombre }}
-                    ${{ egreso.monto }}
-                    <a href="{% url 'egreso_detail' egreso.id %}">Detalle</a>
-                    <a href="{% url 'egreso_edit' egreso.id %}">Actualizar</a>
-                    <a href="{% url 'egreso_delete' egreso.id %}">Borrar</a>
-                    <p></p>
-                {% endfor %}
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th scope="col">Fecha</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scpoe="col">Monto</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for egreso in egresos %}
+                                    <tr>
+                                        <th> {{ egreso.fecha }} </th>
+                                        <th> {{ egreso.nombre }} </th>
+                                        <th> ${{ egreso.monto }} </th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">
+                                            <a class="btn btn-primary" href="{% url 'egreso_detail' egreso.id %}">Detalle</a>
+                                        </th>
+                                        <th scope="col">
+                                            <a class="btn btn-primary" href="{% url 'egreso_edit' egreso.id %}">Actualizar</a>
+                                        </th>
+                                        <th scope="col">
+                                            <a class="btn btn-primary" href="{% url 'egreso_delete' egreso.id %}">Borrar</a>
+                                        </th>
+                                    </tr>
+                                    {% endfor %}
+                                    
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
             {% else %}
                 <p>No hay egresos registrados</p>
             {% endif %}
         </ul>
     </span>
-    <p></p>
-    <a href="{% url 'tipo_ingreso_new' %}">Cargar Tipos de Ingreso</a>
-    <p></p>
-    <a href="{% url 'tipo_egreso_new' %}">Cargar Tipos de Egreso</a>
+
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <tr>
+                    <th>
+                        <a class="btn btn-success" href="{% url 'tipo_ingreso_new' %}">Cargar Tipos de Ingreso</a>
+                    </th>
+                </tr>
+                
+              </li>
+              <li class="nav-item">
+                <tr>
+                    <th>
+                        <a class="btn btn-success" href="{% url 'tipo_egreso_new' %}">Cargar Tipos de Egreso</a>
+                    </th>
+                </tr>
+                
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+   
 {% endblock content %}
