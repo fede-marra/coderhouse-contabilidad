@@ -26,7 +26,7 @@ class IndexList(LoginRequiredMixin, ListView):
 
     def get_context_data(self):
         context = super().get_context_data()
-        context['ingresos'] = Ingreso.objects.all()
+        context['ingreso'] = Ingreso.objects.all()
         context['egresos'] = Egreso.objects.all()
         return context
 
@@ -58,9 +58,9 @@ class Tipo_egresoUpdate(UpdateView, LoginRequiredMixin):
     success_url = reverse_lazy('index')
 
 
-class Tipo_egresoDelete(UserPassesTestMixin, DeleteView, LoginRequiredMixin):
+class Tipo_egresoDelete(DeleteView, LoginRequiredMixin):
     model = Tipo_egreso
-    template_name = 'tipo_egreso/tipo_egreso_delete.html'
+    template_name = 'Tipo_egreso/tipo_egreso_delete.html'
     success_url = reverse_lazy('index')
 
 # -------------------------------------------Tipo Ingreso-------------------------------------------
@@ -68,12 +68,12 @@ class Tipo_egresoDelete(UserPassesTestMixin, DeleteView, LoginRequiredMixin):
 
 class Tipo_ingresoList(ListView, LoginRequiredMixin):
     model = Tipo_ingreso
-    template_name = 'tipo_ingresos/tipo_ingreso_list.html'
+    template_name = 'tipo_ingreso/tipo_ingreso_list.html'
 
 
 class Tipo_ingresoDetail(DetailView, LoginRequiredMixin):
     model = Tipo_ingreso
-    template_name = 'tipo_ingresos/tipo_ingreso_detail.html'
+    template_name = 'tipo_ingreso/tipo_ingreso_detail.html'
 
 
 class Tipo_ingresoCreate(CreateView, LoginRequiredMixin):
@@ -90,11 +90,13 @@ class Tipo_ingresoUpdate(UpdateView, LoginRequiredMixin):
     success_url = reverse_lazy('index')
 
 
-class Tipo_ingresoDelete(UserPassesTestMixin, DeleteView, LoginRequiredMixin):
+class Tipo_ingresoDelete(DeleteView, LoginRequiredMixin):
     model = Tipo_ingreso
-    template_name = 'tipo_ingresos/tipo_ingreso_delete.html'
+    template_name = 'Tipo_ingreso/tipo_ingreso_delete.html'
     success_url = reverse_lazy('index')
-# -------------------------------------------Ingresos-------------------------------------------
+
+
+# -------------------------------------------Ingreso-------------------------------------------
 
 
 class HomeList(ListView, LoginRequiredMixin):

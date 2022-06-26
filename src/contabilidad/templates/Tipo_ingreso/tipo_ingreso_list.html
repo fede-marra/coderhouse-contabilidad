@@ -13,12 +13,12 @@
                 Nombre: {{ tipo_ingreso.nombre }}
                 <br>
                 <a href="{% url 'tipo_ingreso_detail' tipo_ingreso.id %}">Detalle</a>
-                <a href="{% url 'tipo_ingreso_edit' tipo_egreso.id %}">Actualizar</a>
-                <a href="{% url 'tipo_ingreso_delete' tipo_egreso.id %}">Borrar</a>
+                <a href="{% url 'tipo_ingreso_edit' tipo_ingreso.id %}">Actualizar</a>
+                <a href="{% url 'tipo_ingreso_delete' tipo_ingreso.id %}">Borrar</a>
                 <p></p>
             {% endfor %}
         {% else %}
-            <p>No hay egresos cargados</p>
+            <p>No hay ingresos cargados</p>
         {% endif %}
         <p></p>
     </div>

@@ -30,15 +30,15 @@ urlpatterns = [
     path('tipo_egreso/<int:pk>/delete/',
          views.Tipo_egresoDelete.as_view(), name="tipo_egreso_delete"),
 
-    path('tipo_ingreso/list/', views.Tipo_egresoList.as_view(),
+    path('tipo_ingreso/list/', views.Tipo_ingresoList.as_view(),
          name="tipo_ingreso_list"),
-    path('tipo_ingresos/<int:pk>/', views.Tipo_ingresoDetail.as_view(),
+    path('tipo_ingreso/<int:pk>/', views.Tipo_ingresoDetail.as_view(),
          name="tipo_ingreso_detail"),
-    path('tipo_ingresos/new/', views.Tipo_ingresoCreate.as_view(),
+    path('tipo_ingreso/new/', views.Tipo_ingresoCreate.as_view(),
          name="tipo_ingreso_new"),
-    path('tipo_ingresos/<int:pk>/edit/',
+    path('tipo_ingreso/<int:pk>/edit/',
          views.Tipo_ingresoUpdate.as_view(), name="tipo_ingreso_edit"),
-    path('tipo_ingresos/<int:pk>/delete/',
+    path('tipo_ingreso/<int:pk>/delete/',
          views.Tipo_ingresoDelete.as_view(), name="tipo_ingreso_delete"),
 
 ]
