@@ -26,7 +26,7 @@ class IndexList(LoginRequiredMixin, ListView):
 
     def get_context_data(self):
         context = super().get_context_data()
-        context['ingreso'] = Ingreso.objects.all()
+        context['ingresos'] = Ingreso.objects.all()
         context['egresos'] = Egreso.objects.all()
         return context
 
