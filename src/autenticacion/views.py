@@ -9,6 +9,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
 
+from autenticacion.models import Avatar
+
 
 class SignUpView(SuccessMessageMixin, CreateView):
     form_class = UserCreationForm
@@ -38,3 +40,26 @@ class Login(LoginView):
 
 class Logout(LogoutView):
     template_name = 'logout.html'
+
+
+# Create Avatar
+class AvatarCreate(LoginRequiredMixin, CreateView):
+    model = Avatar
+    fields = ['image']
+    template_name = 'form.html'
+
+    def get_success_url(self):
+        return reverse_lazy('profile', kwargs={'pk': self.request.user.pk})
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+
+class AvatarUpdate(LoginRequiredMixin, UpdateView):
+    model = Avatar
+    template_name = 'form.html'
+    fields = ['image']
+
+    def get_success_url(self):
+        return reverse_lazy('profile', kwargs={'pk': self.request.user.pk})
