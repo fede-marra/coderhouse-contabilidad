@@ -5,4 +5,6 @@ Las secciones de tipo de ingresos y tipos de egresos, son las primeras que deber
 En un principio cuando uno ingresa se vera en pantalla un mensaje que no se posee ningun tipo de elementos cargado, pero a medida que se vayan realizando las distintas cargas, se ira reflejando en una tabla con todos los valores.
 
 
+Video del Funcionamiento.
 
+[![Alt text](https://img.youtube.com/vi/fwhE3ovCUqE/0.jpg)](https://www.youtube.com/watch?v=fwhE3ovCUqE)
