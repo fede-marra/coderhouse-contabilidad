@@ -1,15 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
+    <img height="128" src='{{object.avatar_set.first.image.url}}' />
     <ul>
-        {% load static %}
-        <img src="{% static 'avatars/avatar.jpg' %}">
-        {% comment %} {% load static %}
-        <img src="{% static '/avatars/avatar.jpg' %}" alt="image">
-        {% if object_list %}
+        {% if object.avatar_set.first.image.url %}
             <a href="{% url 'update_avatar' user.id %}">Modificar Avatar</a>
         {% else %}
-            <a href="{% url 'create_avatar' user.id %}">Modificar Avatar</a>
-        {% endif %} {% endcomment %}
+            <a href="{% url 'create_avatar' user.id %}">Crear Avatar</a>
+        {% endif %} 
+      
         <li>Nombre: {{ object.first_name }}</li>
         <li>Apellido: {{ object.last_name }}</li>
         <li>Correo electronico: {{ object.email }}</li>
