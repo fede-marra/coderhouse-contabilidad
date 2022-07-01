@@ -13,6 +13,7 @@ urlpatterns = [
     path('avatar/<pk>/editar/',
          views.AvatarUpdate.as_view(), name='update_avatar'),
     path('avatar/<pk>/crear/', views.AvatarCreate.as_view(), name='create_avatar'),
+    path("avatar/", views.agregarAvatar, name="agregar_avatar"),
 
 ]
 

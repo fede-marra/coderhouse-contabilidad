@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-    <img height="128" src='{{object.avatar_set.first.image.url}}' />
+    <img height="128" src='{{object.avatar_set.last.image.url}}' />
     <ul>
-        {% if object.avatar_set.first.image.url %}
-            <a href="{% url 'update_avatar' user.id %}">Modificar Avatar</a>
+        {% if object.avatar_set.last.image.url %}
+            <a href="{% url 'agregar_avatar' %}">Modificar Avatar</a>
         {% else %}
-            <a href="{% url 'create_avatar' user.id %}">Crear Avatar</a>
+            <a href="{% url 'agregar_avatar' %}">Crear Avatar</a>
         {% endif %} 
       
         <li>Nombre: {{ object.first_name }}</li>
