@@ -8,6 +8,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
+from autenticacion.forms import AvatarFormulario
 
 from autenticacion.models import Avatar
 
@@ -56,6 +57,7 @@ class AvatarCreate(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
+
 class AvatarUpdate(LoginRequiredMixin, UpdateView):
     model = Avatar
     template_name = 'form.html'
@@ -63,3 +65,17 @@ class AvatarUpdate(LoginRequiredMixin, UpdateView):
 
     def get_success_url(self):
         return reverse_lazy('profile', kwargs={'pk': self.request.user.pk})
+
+
+def agregarAvatar(request):
+  if request.method == "POST":
+    mi_form = AvatarFormulario(request.POST, request.FILES)
+
+    if mi_form.is_valid():
+      u = User.objects.get(username=request.user)
+      avatar = Avatar(user=u, image=mi_form.cleaned_data['imagen'])
+      avatar.save()
+  else:
+    mi_form = AvatarFormulario()
+  
+  return render(request, "avatar.html", {"mi_form":mi_form})    
