@@ -12,7 +12,10 @@
                                 <thead class="table-dark">
                                     <tr>
                                         <th scope="col">Fecha</th>
+                                        <th scope="col">Usuario</th>
+                                        <th scope="col">Tipo Ingreso</th>
                                         <th scope="col">Nombre</th>
+                                        <th scope="col">Descripcion</th>
                                         <th scpoe="col">Monto</th>
                                     </tr>
                                 </thead>
@@ -20,7 +23,10 @@
                                     {% for ingreso in ingresos %}
                                         <tr>
                                             <th>{{ ingreso.fecha }}</th>
+                                            <th>{{ ingreso.usuario }}</th>
+                                            <th>{{ ingreso.tipo_ingreso }}</th>
                                             <th>{{ ingreso.nombre }}</th>
+                                            <th>{{ ingreso.descripcion }}</th>
                                             <th>${{ ingreso.monto }}</th>
                                             <tr>
                                                 <th scope="col">
@@ -54,7 +60,10 @@
                                     <thead class="table-dark">
                                         <tr>
                                             <th scope="col">Fecha</th>
+                                            <th scope="col">Usuario</th>
+                                            <th scope="col">Tipo Egreso</th>
                                             <th scope="col">Nombre</th>
+                                            <th scope="col">Descripcion</th>
                                             <th scpoe="col">Monto</th>
                                         </tr>
                                     </thead>
@@ -62,7 +71,10 @@
                                         {% for egreso in egresos %}
                                             <tr>
                                                 <th>{{ egreso.fecha }}</th>
+                                                <th>{{ egreso.usuario }}</th>
+                                                <th>{{ egreso.tipo_egreso }}</th>
                                                 <th>{{ egreso.nombre }}</th>
+                                                <th>{{ egreso.descripcion }}</th>
                                                 <th>${{ egreso.monto }}</th>
                                             </tr>
                                             <tr>
