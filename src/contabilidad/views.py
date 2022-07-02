@@ -60,7 +60,7 @@ class Tipo_egresoUpdate(UpdateView, LoginRequiredMixin):
 
 class Tipo_egresoDelete(DeleteView, LoginRequiredMixin):
     model = Tipo_egreso
-    template_name = 'Tipo_egreso/tipo_egreso_delete.html'
+    template_name = 'tipo_egreso/tipo_egreso_delete.html'
     success_url = reverse_lazy('index')
 
 # -------------------------------------------Tipo Ingreso-------------------------------------------
@@ -92,7 +92,7 @@ class Tipo_ingresoUpdate(UpdateView, LoginRequiredMixin):
 
 class Tipo_ingresoDelete(DeleteView, LoginRequiredMixin):
     model = Tipo_ingreso
-    template_name = 'Tipo_ingreso/tipo_ingreso_delete.html'
+    template_name = 'tipo_ingreso/tipo_ingreso_delete.html'
     success_url = reverse_lazy('index')
 
 
