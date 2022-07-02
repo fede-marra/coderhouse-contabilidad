@@ -25,7 +25,6 @@ SECRET_KEY = 'django-insecure-ndnr)785eh0yp%ly9hzrgd%h912!jfodfkplxy(v8=!wy&*ckz
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-
 ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS"), "localhost", "127.0.0.1"]
 
 # Application definition
@@ -127,3 +126,18 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 DATE_INPUT_FORMATS = ['%d/%m/%Y']
 LOGIN_URL = "login"
+
+
+MEDIA_URL = "media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
