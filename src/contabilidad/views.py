@@ -36,12 +36,12 @@ class IndexList(LoginRequiredMixin, ListView):
 
 class Tipo_egresoList(ListView, LoginRequiredMixin):
     model = Tipo_egreso
-    template_name = 'tipo_egreso/tipo_egreso_list.html'
+    template_name = 'Tipo_egreso/tipo_egreso_list.html'
 
 
 class Tipo_egresoDetail(DetailView, LoginRequiredMixin):
     model = Tipo_egreso
-    template_name = 'tipo_egreso/tipo_egreso_detail.html'
+    template_name = 'Tipo_egreso/tipo_egreso_detail.html'
 
 
 class Tipo_egresoCreate(CreateView, LoginRequiredMixin):
@@ -68,12 +68,12 @@ class Tipo_egresoDelete(DeleteView, LoginRequiredMixin):
 
 class Tipo_ingresoList(ListView, LoginRequiredMixin):
     model = Tipo_ingreso
-    template_name = 'tipo_ingreso/tipo_ingreso_list.html'
+    template_name = 'Tipo_ingreso/tipo_ingreso_list.html'
 
 
 class Tipo_ingresoDetail(DetailView, LoginRequiredMixin):
     model = Tipo_ingreso
-    template_name = 'tipo_ingreso/tipo_ingreso_detail.html'
+    template_name = 'Tipo_ingreso/tipo_ingreso_detail.html'
 
 
 class Tipo_ingresoCreate(CreateView, LoginRequiredMixin):

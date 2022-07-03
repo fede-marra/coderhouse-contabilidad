@@ -8,3 +8,6 @@ En un principio cuando uno ingresa se vera en pantalla un mensaje que no se pose
 Video del Funcionamiento.
 
 [![Alt text](https://img.youtube.com/vi/fwhE3ovCUqE/0.jpg)](https://www.youtube.com/watch?v=fwhE3ovCUqE)
+
+Video del funcionamiento del avatar en el perfil
+[![Alt text](https://img.youtube.com/vi/onfYxn8Nb3w/0.jpg)](https://www.youtube.com/watch?v=onfYxn8Nb3w)
