@@ -7,7 +7,7 @@ from contabilidad.models import Ingreso, Egreso, Tipo_egreso, Tipo_ingreso
 from django.contrib import messages
 
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView, TemplateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView, TemplateView, TemplateView
 from django.contrib.auth.views import LoginView, LogoutView
 
 
@@ -60,7 +60,7 @@ class Tipo_egresoUpdate(UpdateView, LoginRequiredMixin):
 
 class Tipo_egresoDelete(DeleteView, LoginRequiredMixin):
     model = Tipo_egreso
-    template_name = 'Tipo_egreso/tipo_egreso_delete.html'
+    template_name = 'tipo_egreso/tipo_egreso_delete.html'
     success_url = reverse_lazy('index')
 
 # -------------------------------------------Tipo Ingreso-------------------------------------------
@@ -92,7 +92,7 @@ class Tipo_ingresoUpdate(UpdateView, LoginRequiredMixin):
 
 class Tipo_ingresoDelete(DeleteView, LoginRequiredMixin):
     model = Tipo_ingreso
-    template_name = 'Tipo_ingreso/tipo_ingreso_delete.html'
+    template_name = 'tipo_ingreso/tipo_ingreso_delete.html'
     success_url = reverse_lazy('index')
 
 
@@ -173,3 +173,6 @@ class EgresoDelete(DeleteView, LoginRequiredMixin):
     model = Egreso
     template_name = 'Egreso/egreso_delete.html'
     success_url = reverse_lazy('index')
+
+class AboutView(TemplateView):
+    template_name = "acercade.html"
