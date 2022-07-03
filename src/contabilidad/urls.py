@@ -40,5 +40,5 @@ urlpatterns = [
          views.Tipo_ingresoUpdate.as_view(), name="tipo_ingreso_edit"),
     path('tipo_ingreso/<int:pk>/delete/',
          views.Tipo_ingresoDelete.as_view(), name="tipo_ingreso_delete"),
-     path('acercade/', views.AboutView.as_view(), name="acerca"),
+
 ]
