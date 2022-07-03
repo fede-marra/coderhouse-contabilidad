@@ -5,9 +5,9 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('autenticacion', '0003_alter_avatar_image'),
-    ]
+#    dependencies = [
+#        ('autenticacion', '0003_alter_avatar_image'),
+#    ]
 
     operations = [
         migrations.AlterField(
